@@ -1,112 +1,116 @@
 /*--------------- Variables ---------------*/
-
 $link-color: #333; //nav link color
 $link-color-hover: orange; //nav link color when hovering over it
 $active-link-color: orange; //color of the active nav link
 $link-margin: 25px; //margin left and right of the nav item
-
 $background-color: #e6e6e6; //background-color of the navbar
-
 $breakpoint: 768px; //breakpoint for collapsing the menu
-
 /*--------------- Navbar ---------------*/
-
 .navbar {
-  width: 100%;
-  text-align: center;
-  background: $background-color;
-  ul {
-    list-style-type: none;
-    a {
-      text-decoration: none;
-    }
-  }
+    width: 100%;
+    text-align: center;
+    background: $background-color;
 
-  .navbar-item {
-    position: relative;
-    a {
-      transition: all .2s;
-      color: $link-color;
-    }
-    &:hover {
-      a {
-        color: $link-color-hover;
-      }
-      &:after {
-        transition: all .4s;
-        content: '';
-        position: absolute;
-        bottom: 0;
-        background-color: #333;
-        width: 60px;
-        height: 2px;
-        left: 50%;
-        transform: translateX(-30px);
-      }
+    ul {
+        list-style-type: none;
 
-    }
-    padding: 15px 0;
-    font-size: 1.8rem;
-  }
-
-  .active {
-    position: relative;
-    a {
-      color: $active-link-color;
+        a {
+            text-decoration: none;
+        }
     }
 
-    &:after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      background-color: #333;
-      width: 60px;
-      height: 2px;
-      left: 50%;
-      transform: translateX(-30px);
+    .navbar-item {
+        position: relative;
+
+        a {
+            transition: all 0.2s;
+            color: $link-color;
+        }
+
+        &:hover {
+            a {
+                color: $link-color-hover;
+            }
+
+            &:after {
+                transition: all 0.4s;
+                content: '';
+                position: absolute;
+                bottom: 0;
+                background-color: #333;
+                width: 60px;
+                height: 2px;
+                left: 50%;
+                transform: translateX(-30px);
+            }
+        }
+        padding: 15px 0;
+        font-size: 1.8rem;
     }
-  }
-  .collapse {
-    display: none;
-  }
+
+    .active {
+        position: relative;
+
+        a {
+            color: $active-link-color;
+        }
+
+        &:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            background-color: #333;
+            width: 60px;
+            height: 2px;
+            left: 50%;
+            transform: translateX(-30px);
+        }
+    }
+
+    .collapse {
+        display: none;
+    }
 }
 
 #menu-button {
-  width: 20px;
-  height: 40px;
-  margin: 5px;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  span {
-    background-color: #333;
     width: 20px;
-    height: 2px;
-    margin: 2px 0;
-  }
-}
+    height: 40px;
+    margin: 5px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
-/*--------------- Media Queries ---------------*/
-
-@media (min-width: $breakpoint) {
-  .navbar {
-    text-align: right;
-  }
-  .navbar-item {
-    display: inline-block;
-    margin: 0px $link-margin;
-  }
-  #menu-button {
-    display: none;
-  }
-  .collapse {
-    display: block !important;
-  }
-  .active {
-    &:after {
-      width: 75%;
-      transform: translateX(-47.5%);
+    span {
+        background-color: #333;
+        width: 20px;
+        height: 2px;
+        margin: 2px 0;
     }
-  }
+}
+/*--------------- Media Queries ---------------*/
+@media (min-width: $breakpoint) {
+    .navbar {
+        text-align: right;
+    }
+
+    .navbar-item {
+        display: inline-block;
+        margin: 0 $link-margin;
+    }
+
+    #menu-button {
+        display: none;
+    }
+
+    .collapse {
+        display: block !important;
+    }
+
+    .active {
+        &:after {
+            width: 75%;
+            transform: translateX(-47.5%);
+        }
+    }
 }
