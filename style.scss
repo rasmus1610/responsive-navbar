@@ -1,13 +1,13 @@
 /*--------------- Variables ---------------*/
 
-$link-color: #333;
-$link-color-hover: orange;
-$active-link-color: orange;
-$link-margin: 25px;
+$link-color: #333; //nav link color
+$link-color-hover: orange; //nav link color when hovering over it
+$active-link-color: orange; //color of the active nav link
+$link-margin: 25px; //margin left and right of the nav item
 
-$background-color: #e6e6e6;
+$background-color: #e6e6e6; //background-color of the navbar
 
-$breakpoint: 768px;
+$breakpoint: 768px; //breakpoint for collapsing the menu
 
 /*--------------- Navbar ---------------*/
 
