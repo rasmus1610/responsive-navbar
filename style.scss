@@ -1,0 +1,112 @@
+/*--------------- Variables ---------------*/
+
+$link-color: #333;
+$link-color-hover: orange;
+$active-link-color: orange;
+$link-margin: 25px;
+
+$background-color: #e6e6e6;
+
+$breakpoint: 768px;
+
+/*--------------- Navbar ---------------*/
+
+.navbar {
+  width: 100%;
+  text-align: center;
+  background: $background-color;
+  ul {
+    list-style-type: none;
+    a {
+      text-decoration: none;
+    }
+  }
+
+  .navbar-item {
+    position: relative;
+    a {
+      transition: all .2s;
+      color: $link-color;
+    }
+    &:hover {
+      a {
+        color: $link-color-hover;
+      }
+      &:after {
+        transition: all .4s;
+        content: '';
+        position: absolute;
+        bottom: 0;
+        background-color: #333;
+        width: 60px;
+        height: 2px;
+        left: 50%;
+        transform: translateX(-30px);
+      }
+
+    }
+    padding: 15px 0;
+    font-size: 1.8rem;
+  }
+
+  .active {
+    position: relative;
+    a {
+      color: $active-link-color;
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      background-color: #333;
+      width: 60px;
+      height: 2px;
+      left: 50%;
+      transform: translateX(-30px);
+    }
+  }
+  .collapse {
+    display: none;
+  }
+}
+
+#menu-button {
+  width: 20px;
+  height: 40px;
+  margin: 5px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  span {
+    background-color: #333;
+    width: 20px;
+    height: 2px;
+    margin: 2px 0;
+  }
+}
+
+/*--------------- Media Queries ---------------*/
+
+@media (min-width: $breakpoint) {
+  .navbar {
+    text-align: right;
+  }
+  .navbar-item {
+    display: inline-block;
+    margin: 0px $link-margin;
+  }
+  #menu-button {
+    display: none;
+  }
+  .collapse {
+    display: block !important;
+  }
+  .active {
+    &:after {
+      width: 75%;
+      transform: translateX(-47.5%);
+    }
+  }
+}
