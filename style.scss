@@ -5,9 +5,16 @@ $active-link-color: orange; //color of the active nav link
 $link-margin: 25px; //margin left and right of the nav item
 $background-color: #e6e6e6; //background-color of the navbar
 $breakpoint: 768px; //breakpoint for collapsing the menu
+$navbar-height: 50px; //navbar-height
+
+body {
+  margin: 0;
+  padding: 0;
+}
 /*--------------- Navbar ---------------*/
 .navbar {
     width: 100%;
+    height: $navbar-height;
     text-align: center;
     background: $background-color;
 
@@ -39,7 +46,7 @@ $breakpoint: 768px; //breakpoint for collapsing the menu
                 bottom: 0;
                 background-color: #333;
                 width: 60px;
-                height: 2px;
+                height: 3px;
                 left: 50%;
                 transform: translateX(-30px);
             }
@@ -61,7 +68,7 @@ $breakpoint: 768px; //breakpoint for collapsing the menu
             bottom: 0;
             background-color: #333;
             width: 60px;
-            height: 2px;
+            height: 3px;
             left: 50%;
             transform: translateX(-30px);
         }
@@ -69,25 +76,56 @@ $breakpoint: 768px; //breakpoint for collapsing the menu
 
     .collapse {
         display: none;
+        background-color: $background-color;
+        border-top: 1px solid darken($background-color, 10%);
     }
 }
 
 #menu-button {
-    width: 20px;
-    height: 40px;
-    margin: 5px;
-    padding: 10px;
+    position: relative;
+    width: 25px;
+    height: $navbar-height;
     display: flex;
     flex-direction: column;
     justify-content: center;
-
-    span {
-        background-color: #333;
-        width: 20px;
-        height: 2px;
-        margin: 2px 0;
-    }
+    cursor: pointer;
 }
+
+span {
+    position: absolute;
+    background-color: orange;
+    width: 25px;
+    height: 2px;
+    transition: all .3s;
+    border-radius: 5px;
+    left: 7.5px;
+}
+
+span:first-of-type {
+  top: 15px;
+}
+
+span:last-of-type {
+  bottom: 15px;
+}
+
+.open span {
+  top: 24px;
+  left: 7.5px;
+}
+
+.open span:first-of-type {
+  transform: rotate(-135deg);
+}
+
+.open span:nth-of-type(2) {
+  opacity: 0;
+}
+
+.open span:last-of-type {
+  transform: rotate(135deg);
+}
+
 /*--------------- Media Queries ---------------*/
 @media (min-width: $breakpoint) {
     .navbar {
@@ -103,8 +141,9 @@ $breakpoint: 768px; //breakpoint for collapsing the menu
         display: none;
     }
 
-    .collapse {
-        display: block !important;
+    .navbar .collapse {
+        display: block;
+        border: none;
     }
 
     .active {

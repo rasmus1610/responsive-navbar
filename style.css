@@ -1,7 +1,12 @@
 /*--------------- Variables ---------------*/
+body {
+  margin: 0;
+  padding: 0; }
+
 /*--------------- Navbar ---------------*/
 .navbar {
   width: 100%;
+  height: 50px;
   text-align: center;
   background: #e6e6e6; }
   .navbar ul {
@@ -24,7 +29,7 @@
       bottom: 0;
       background-color: #333;
       width: 60px;
-      height: 2px;
+      height: 3px;
       left: 50%;
       transform: translateX(-30px); }
   .navbar .active {
@@ -37,25 +42,50 @@
       bottom: 0;
       background-color: #333;
       width: 60px;
-      height: 2px;
+      height: 3px;
       left: 50%;
       transform: translateX(-30px); }
   .navbar .collapse {
-    display: none; }
+    display: none;
+    background-color: #e6e6e6;
+    border-top: 1px solid #cdcdcd; }
 
 #menu-button {
-  width: 20px;
-  height: 40px;
-  margin: 5px;
-  padding: 10px;
+  position: relative;
+  width: 25px;
+  height: 50px;
   display: flex;
   flex-direction: column;
-  justify-content: center; }
-  #menu-button span {
-    background-color: #333;
-    width: 20px;
-    height: 2px;
-    margin: 2px 0; }
+  justify-content: center;
+  cursor: pointer; }
+
+span {
+  position: absolute;
+  background-color: orange;
+  width: 25px;
+  height: 2px;
+  transition: all .3s;
+  border-radius: 5px;
+  left: 7.5px; }
+
+span:first-of-type {
+  top: 15px; }
+
+span:last-of-type {
+  bottom: 15px; }
+
+.open span {
+  top: 24px;
+  left: 7.5px; }
+
+.open span:first-of-type {
+  transform: rotate(-135deg); }
+
+.open span:nth-of-type(2) {
+  opacity: 0; }
+
+.open span:last-of-type {
+  transform: rotate(135deg); }
 
 /*--------------- Media Queries ---------------*/
 @media (min-width: 768px) {
@@ -69,8 +99,9 @@
   #menu-button {
     display: none; }
 
-  .collapse {
-    display: block !important; }
+  .navbar .collapse {
+    display: block;
+    border: none; }
 
   .active:after {
     width: 75%;
