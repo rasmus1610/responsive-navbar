@@ -8,8 +8,8 @@ $breakpoint: 768px; //breakpoint for collapsing the menu
 $navbar-height: 50px; //navbar-height
 
 body {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 /*--------------- Navbar ---------------*/
 .navbar {
@@ -96,36 +96,35 @@ span {
     background-color: orange;
     width: 25px;
     height: 2px;
-    transition: all .3s;
+    transition: all 0.3s;
     border-radius: 5px;
     left: 7.5px;
 }
 
 span:first-of-type {
-  top: 15px;
+    top: 15px;
 }
 
 span:last-of-type {
-  bottom: 15px;
+    bottom: 15px;
 }
 
 .open span {
-  top: 24px;
-  left: 7.5px;
+    top: 24px;
+    left: 7.5px;
 }
 
 .open span:first-of-type {
-  transform: rotate(-135deg);
+    transform: rotate(-135deg);
 }
 
 .open span:nth-of-type(2) {
-  opacity: 0;
+    opacity: 0;
 }
 
 .open span:last-of-type {
-  transform: rotate(135deg);
+    transform: rotate(135deg);
 }
-
 /*--------------- Media Queries ---------------*/
 @media (min-width: $breakpoint) {
     .navbar {
